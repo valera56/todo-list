@@ -6,6 +6,7 @@ export default function Img1() {
         <video className="img1" src={video_6} autoPlay loop muted></video>
         <video className="img2" src={video_6} autoPlay loop muted></video>
        
+       
     </div>
   );
 }
