@@ -27,7 +27,7 @@ function AddTodo() {
   return (
     <div className="list">
       <div className="bag_video">
-       <img className="bag_video_1"   src="https://images3.alphacoders.com/783/783076.jpg" alt="" /> 
+       <img className="bag_video_1"   src="" alt="" /> 
            
       </div>
       <div className="ul_todos">
