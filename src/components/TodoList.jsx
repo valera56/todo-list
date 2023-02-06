@@ -19,6 +19,7 @@ function TodoList(props) {
   const handleDeleteClick = () => {
     deleteTodo(props.todo.id);
     getTodos();
+    
   };
 
   const handeChangeStatus = (e) => {
