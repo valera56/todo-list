@@ -1,10 +1,11 @@
 import React from "react";
-
+import video_1 from "../assets/video_1.mp4"
+import video_6 from "../assets/video_6.mp4"
 export default function Img1() {
   return (
     <div className="block1">
-      <img className="img1" src="https://img1.ak.crunchyroll.com/i/spire2/2d46cd0add8297e8489032ba5f17ceca1669123876_main.jpg" alt="" />
-      <img className="img2" src="https://img1.ak.crunchyroll.com/i/spire2/2d46cd0add8297e8489032ba5f17ceca1669123876_main.jpg" alt="" />
+      <video className="img1" src={video_1} autoPlay muted loop></video>
+      <video className="img2" src={video_6} autoPlay muted loop></video>
     </div>
   );
 }
