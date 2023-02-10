@@ -1,4 +1,16 @@
 {
+  "users": [
+    {
+      "email": "valera@gmail.com",
+      "password": "$2a$10$fm5T.StXWaRIBOGQrMpiVureQrtoSd5Kpdyb9A1BEKq74LuTMClb6",
+      "id": 1
+    },
+    {
+      "email": "valera1@gmail.com",
+      "password": "$2a$10$gIZ9L4lFcJIMFIOq1NifEeNwJJMaWpcw0rc05w1AnYDhQlzlvvOkW",
+      "id": 2
+    }
+  ],
   "todos": [
     {
       "complete": true,
@@ -59,6 +71,16 @@
       "complete": false,
       "task": "qwe4",
       "id": 12
+    },
+    {
+      "complete": false,
+      "task": "",
+      "id": 13
+    },
+    {
+      "complete": false,
+      "task": "",
+      "id": 14
     }
   ]
 }

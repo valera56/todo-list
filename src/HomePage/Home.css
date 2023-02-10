@@ -1,0 +1,42 @@
+
+
+.Home {
+    background-color:blue ;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    
+}
+
+.logAut {
+    
+    margin-right: 20px;
+} 
+
+.but_log {
+    border-color: black;
+   background-color: darkred;
+   color: yellow;
+    margin-right: 20px;
+}
+
+.button_register {
+    border-color: black;
+   background-color: green;
+
+    margin-right: 20px;
+}
+
+.button_login {
+    border-color: black;
+    background-color: red;
+ 
+     margin-right: 20px;  
+}
+
+.add_btn {
+    border-color: black;
+    background-color: violet;
+    margin-left: 20px;
+
+}

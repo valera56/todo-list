@@ -1,15 +1,11 @@
 
-import Img1 from './components/Img1';
-import TodosContextProvider from './contexts/TodosContext';
+
 import './App.css';
-import AddTodo from './components/AddToto';
+import MainRoutes from './MainRoutes';
 function App() {
   return (
     <div className="App">
-      <TodosContextProvider>
-      < Img1/>
-      <AddTodo />
-     </TodosContextProvider>
+      <MainRoutes />
     </div>
   );
 }

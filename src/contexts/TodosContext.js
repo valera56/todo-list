@@ -1,5 +1,6 @@
 import axios from "axios";
-import { createContext, useReducer } from "react";
+import { createContext, useReducer, useState } from "react";
+import { useHistory } from "react-router-dom";
 import history from "../helpers/history";
 
 export const todosContext = createContext();
@@ -59,6 +60,13 @@ export const reducer = (state = INITIAL_STATE, action) => {
 const TodosContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
 
+  const history = useHistory()
+
+  const [isAuth, setisAuth] =useState(false)
+
+  const [userEmail, setUserEmail ] = useState("")
+
+
   const getTodos = async () => {
     const { data , headers } = await axios(
       `http://localhost:8000/todos${history.location.search}`
@@ -68,7 +76,7 @@ const TodosContextProvider = ({ children }) => {
       type: "GET_TODOS",
       payload: {
         data: data,
-        totalCount: headers["x-total-count"]
+        totalCount: Number(headers["x-total-count"])
 
       }
     });
@@ -143,6 +151,46 @@ const TodosContextProvider = ({ children }) => {
     getTodos()
   } 
 
+
+  const registerUser = async(obj) => {
+    try {
+   const {data} = await axios.post("http://localhost:8000/register", obj)
+       localStorage.setItem("token", data.accessToken)
+       localStorage.setItem("userEmail" , data.user.email)
+       history.push("/todos")
+       setisAuth(true)
+       setUserEmail(data.user.email)
+    } catch (e) {
+    console.log(e.respose.data);
+    } 
+     }
+   
+     const loginUser = async(obj) => {
+   try {
+   const {data} = await axios.post("http://localhost:8000/login", obj)
+       localStorage.setItem("token", data.accessToken)
+       localStorage.setItem("userEmail" , data.user.email)
+       history.push("/todos")
+       setisAuth(true)
+       setUserEmail(data.user.email)
+   } catch (e) {
+   console.log(e.respose.data);
+   }
+   
+   
+       
+     }
+   
+   
+   const logOut = () => {
+     localStorage.removeItem('token')
+     localStorage.removeItem("userEmail")
+     history.push("/")
+     setisAuth(false)
+   }
+    
+   
+
   return (
     <todosContext.Provider
       value={{
@@ -150,6 +198,8 @@ const TodosContextProvider = ({ children }) => {
         limit: state.limit,
         totalCount: state.totalCount,
         page: state.page,
+        isAuth, 
+        userEmail,
         getTodos,
         addTodo,
         editTodo,
@@ -159,6 +209,11 @@ const TodosContextProvider = ({ children }) => {
         setPage,
         getPagination,
         completeFilter,
+        logOut,
+        setisAuth,
+        setUserEmail,
+        loginUser,
+        registerUser,
       }}
     >
       {children}
