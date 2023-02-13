@@ -8,6 +8,8 @@ import Register from './register/Register';
 import Login from './login/Login';
 import Home from './HomePage/Home';
 import AddVideo from './pages/AddVideo';
+
+import AddCommentary from './pages/commentary/AddCommentary';
 export default function MainRoutes() {
   return (
     <div>
@@ -31,10 +33,11 @@ export default function MainRoutes() {
             <Route exact path="/video">
              <AddVideo />
             </Route>
+            <Route exact path="/commentaryes" >
+              < AddCommentary />
+            </Route  >
 
           </Switch>
-
-
         </TodosContextProvider>
       </BrowserRouter>
     </div>

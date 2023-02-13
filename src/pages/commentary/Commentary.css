@@ -1,0 +1,68 @@
+.list_coments {
+    display: flex;
+   width: 600px;
+   height: 300px;
+justify-content: left;
+   margin: 20px;
+   text-align: center;
+   box-sizing: border-box;
+   background-image: url(https://99px.ru/sstorage/53/2023/01/mid_348036_463765.jpg);
+}
+
+
+
+.ul_coment {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background-color: black;
+
+}
+
+
+.list_name  {
+
+
+   
+   
+}
+.lict_value  {
+
+
+
+
+}
+.img_add  {
+ 
+    width: 100%;
+
+}
+
+.bnt_add {
+  
+}
+
+.li_name {
+    color:blue;
+    font-size: 30px;
+    font-weight: 700;
+}
+.li_coment {
+    color:yellow;
+}
+
+.block_add {
+    width: 100px;
+    height: 20px;
+    position: absolute;
+    top: 35px;
+    left: 5px;
+
+}
+
+.block_coment2 {
+    position: absolute;
+    top: 40px;
+}

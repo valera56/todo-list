@@ -1,12 +1,14 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { todosContext } from '../contexts/TodosContext'
 import "./Home.css"
+import history from "../helpers/history"
 export default function Home() {
 
- const { logOut , isAuth, setisAuth ,setUserEmail ,userEmail} = useContext(todosContext)
+ const { logOut , isAuth, setisAuth ,setUserEmail ,userEmail } = useContext(todosContext)
 
     useEffect(() => {
+       
         const token = localStorage.getItem("token")
         const userEmailLs = localStorage.getItem("userEmail")
         if (token) {
@@ -26,6 +28,7 @@ export default function Home() {
             <Link to={"/todos"}>главная страница </Link>
             </button>
             <button><Link to={"/video"}>Video</Link></button>
+            <button><Link to={"/commentaryes"}>commentary</Link></button>
             {isAuth? (
                 <div>
                      {userEmail}

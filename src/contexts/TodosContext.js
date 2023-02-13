@@ -1,7 +1,7 @@
 import axios from "axios";
 import { createContext, useReducer, useState } from "react";
 import { useHistory } from "react-router-dom";
-import history from "../helpers/history";
+
 
 export const todosContext = createContext();
 
@@ -10,7 +10,7 @@ const INITIAL_STATE = {
   limit: 4,
   page: 1,
   totalCount:0,
-
+  commentarys : [],
 };
 
 export const reducer = (state = INITIAL_STATE, action) => {
@@ -47,10 +47,26 @@ export const reducer = (state = INITIAL_STATE, action) => {
         }),
       };
 
-    
-
       case "SET_PAGE":
         return { ...state, page: action.payload };
+       
+      case "GET_COMMENTATY":
+          return { ...state , commentarys : action.payload }
+           
+      case "ADD_COMMENTARY":
+        return { ...state , commentarys : [...state.commentarys , action.payload]} 
+      
+        case "DELETE_COMENTS":
+      return {
+        ...state,
+        commentarys: state.commentarys.filter((todo, id) => {
+          if (todo.id == !id) {
+            return todo;
+          }
+          return id;
+        }),
+      };
+
 
     default:
       return state;
@@ -66,6 +82,8 @@ const TodosContextProvider = ({ children }) => {
 
   const [userEmail, setUserEmail ] = useState("")
 
+  
+  const [isEdit, setIsEdit] = useState(false)
 
   const getTodos = async () => {
     const { data , headers } = await axios(
@@ -189,7 +207,34 @@ const TodosContextProvider = ({ children }) => {
      setisAuth(false)
    }
     
-   
+
+   const getCommetaty = async () => {
+    const {data} = await axios(`http://localhost:8000/commentary`)
+   console.log(data)
+  
+    dispatch({
+      type: "GET_COMMENTATY",
+      payload:data,
+    })
+   }
+ 
+   const addComent = async (obj) => {
+    const {data} = await axios.post(`http://localhost:8000/commentary`, obj)
+     dispatch({
+      type: "ADD_COMMENTARY",
+      payload: data,
+     })
+   }
+
+   const deleteComents = async (id) => {
+    await axios.delete(`http://localhost:8000/commentary/${id}`);
+
+    dispatch({
+      type: "DELETE_COMENTS",
+      payload: id,
+    });
+  };
+
 
   return (
     <todosContext.Provider
@@ -198,6 +243,7 @@ const TodosContextProvider = ({ children }) => {
         limit: state.limit,
         totalCount: state.totalCount,
         page: state.page,
+        commentarys: state.commentarys,
         isAuth, 
         userEmail,
         getTodos,
@@ -214,6 +260,9 @@ const TodosContextProvider = ({ children }) => {
         setUserEmail,
         loginUser,
         registerUser,
+        getCommetaty,
+        addComent,
+        deleteComents,
       }}
     >
       {children}

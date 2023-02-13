@@ -51,11 +51,15 @@ function TodoList(props) {
             </button>
           </div>
         ) : (
-          props.todo.task
-        )}
-        <button className="BtnEdit" onClick={() => setIsEdit(true)}>
+          
+          <div>
+            {props.todo.task}
+            <button className="BtnEdit" onClick={() => setIsEdit(true)}>
           Edit
         </button>
+          </div>
+        )}
+        
         <button className="BtnDelete" onClick={handleDeleteClick}>
           delite
         </button>

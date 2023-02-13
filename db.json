@@ -11,6 +11,23 @@
       "id": 2
     }
   ],
+  "commentary": [
+    {
+      "name": "12",
+      "comment": "21",
+      "id": 1
+    },
+    {
+      "name": "Valera",
+      "comment": "прикольное приложение",
+      "id": 2
+    },
+    {
+      "name": "Valera",
+      "comment": "прикольное приложение от создателя валеры",
+      "id": 3
+    }
+  ],
   "todos": [
     {
       "complete": true,
@@ -71,16 +88,6 @@
       "complete": false,
       "task": "qwe4",
       "id": 12
-    },
-    {
-      "complete": false,
-      "task": "",
-      "id": 13
-    },
-    {
-      "complete": false,
-      "task": "",
-      "id": 14
     }
   ]
 }
