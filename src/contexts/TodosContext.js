@@ -2,15 +2,14 @@ import axios from "axios";
 import { createContext, useReducer, useState } from "react";
 import { useHistory } from "react-router-dom";
 
-
 export const todosContext = createContext();
 
 const INITIAL_STATE = {
   todoData: [],
   limit: 4,
   page: 1,
-  totalCount:0,
-  commentarys : [],
+  totalCount: 0,
+  commentarys: [],
 };
 
 export const reducer = (state = INITIAL_STATE, action) => {
@@ -47,16 +46,19 @@ export const reducer = (state = INITIAL_STATE, action) => {
         }),
       };
 
-      case "SET_PAGE":
-        return { ...state, page: action.payload };
-       
-      case "GET_COMMENTATY":
-          return { ...state , commentarys : action.payload }
-           
-      case "ADD_COMMENTARY":
-        return { ...state , commentarys : [...state.commentarys , action.payload]} 
-      
-        case "DELETE_COMENTS":
+    case "SET_PAGE":
+      return { ...state, page: action.payload };
+
+    case "SET_PAGE_COMENTURY":
+      return { ...state, page: action.payload };
+
+    case "GET_COMMENTATY":
+      return { ...state, commentarys: action.payload };
+
+    case "ADD_COMMENTARY":
+      return { ...state, commentarys: [...state.commentarys, action.payload] };
+
+    case "DELETE_COMENTS":
       return {
         ...state,
         commentarys: state.commentarys.filter((todo, id) => {
@@ -67,7 +69,6 @@ export const reducer = (state = INITIAL_STATE, action) => {
         }),
       };
 
-
     default:
       return state;
   }
@@ -76,28 +77,26 @@ export const reducer = (state = INITIAL_STATE, action) => {
 const TodosContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
 
-  const history = useHistory()
+  const history = useHistory();
 
-  const [isAuth, setisAuth] =useState(false)
+  const [isAuth, setisAuth] = useState(false);
 
-  const [userEmail, setUserEmail ] = useState("")
-
-  
-  const [isEdit, setIsEdit] = useState(false)
+  const [userEmail, setUserEmail] = useState("");
 
   const getTodos = async () => {
-    const { data , headers } = await axios(
-      `http://localhost:8000/todos${history.location.search}`
-    );
+    try {
+      const { data, headers } = await axios(
+        `http://localhost:8000/todos${history.location.search}`
+      );
 
-    dispatch({
-      type: "GET_TODOS",
-      payload: {
-        data: data,
-        totalCount: Number(headers["x-total-count"])
-
-      }
-    });
+      dispatch({
+        type: "GET_TODOS",
+        payload: {
+          data: data,
+          totalCount: Number(headers["x-total-count"]),
+        },
+      });
+    } catch (e) {}
   };
 
   const addTodo = async (obj) => {
@@ -114,7 +113,7 @@ const TodosContextProvider = ({ children }) => {
       obj
     );
     dispatch({
-    type: "EDIT_TODO",
+      type: "EDIT_TODO",
       payload: data,
     });
   };
@@ -127,8 +126,6 @@ const TodosContextProvider = ({ children }) => {
       payload: id,
     });
   };
-
-  
 
   const switchStatus = async (id, obj) => {
     await axios.patch(`http://localhost:8000/todos/${id}`, obj);
@@ -152,12 +149,10 @@ const TodosContextProvider = ({ children }) => {
   const getPagination = (value) => {
     setQuery("_limit", state.limit);
     setQuery("_page", value);
-    getTodos()
+    getTodos();
   };
 
-
   const setPage = (page) => {
-
     dispatch({
       type: "SET_PAGE",
       payload: page,
@@ -165,68 +160,61 @@ const TodosContextProvider = ({ children }) => {
   };
 
   const completeFilter = (value) => {
-    setQuery("complete", value)
-    getTodos()
-  } 
+    setQuery("complete", value);
+    getTodos();
+  };
 
-
-  const registerUser = async(obj) => {
+  const registerUser = async (obj) => {
     try {
-   const {data} = await axios.post("http://localhost:8000/register", obj)
-       localStorage.setItem("token", data.accessToken)
-       localStorage.setItem("userEmail" , data.user.email)
-       history.push("/todos")
-       setisAuth(true)
-       setUserEmail(data.user.email)
+      const { data } = await axios.post("http://localhost:8000/register", obj);
+      localStorage.setItem("token", data.accessToken);
+      localStorage.setItem("userEmail", data.user.email);
+      history.push("/todos");
+      setisAuth(true);
+      setUserEmail(data.user.email);
     } catch (e) {
-    console.log(e.respose.data);
-    } 
-     }
-   
-     const loginUser = async(obj) => {
-   try {
-   const {data} = await axios.post("http://localhost:8000/login", obj)
-       localStorage.setItem("token", data.accessToken)
-       localStorage.setItem("userEmail" , data.user.email)
-       history.push("/todos")
-       setisAuth(true)
-       setUserEmail(data.user.email)
-   } catch (e) {
-   console.log(e.respose.data);
-   }
-   
-   
-       
-     }
-   
-   
-   const logOut = () => {
-     localStorage.removeItem('token')
-     localStorage.removeItem("userEmail")
-     history.push("/")
-     setisAuth(false)
-   }
-    
+      console.log(e.respose.data);
+    }
+  };
 
-   const getCommetaty = async () => {
-    const {data} = await axios(`http://localhost:8000/commentary`)
-   console.log(data)
-  
+  const loginUser = async (obj) => {
+    try {
+      const { data } = await axios.post("http://localhost:8000/login", obj);
+      localStorage.setItem("token", data.accessToken);
+      localStorage.setItem("userEmail", data.user.email);
+      history.push("/todos");
+      setisAuth(true);
+      setUserEmail(data.user.email);
+    } catch (e) {
+      console.log(e.respose.data);
+    }
+  };
+
+  const logOut = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("userEmail");
+    history.push("/");
+    setisAuth(false);
+  };
+
+  const getCommetaty = async () => {
+    const { data } = await axios(`http://localhost:8000/commentary`);
+
     dispatch({
       type: "GET_COMMENTATY",
-      payload:data,
-    })
-   }
- 
-   const addComent = async (obj) => {
-    const {data} = await axios.post(`http://localhost:8000/commentary`, obj)
-     dispatch({
+      payload: data,
+    });
+  };
+
+  const addComent = async (obj) => {
+    const { data } = await axios.post(`http://localhost:8000/commentary`, obj);
+    dispatch({
       type: "ADD_COMMENTARY",
       payload: data,
-     })
-   }
+    });
+  };
 
-   const deleteComents = async (id) => {
+  const deleteComents = async (id) => {
     await axios.delete(`http://localhost:8000/commentary/${id}`);
 
     dispatch({
@@ -234,7 +222,6 @@ const TodosContextProvider = ({ children }) => {
       payload: id,
     });
   };
-
 
   return (
     <todosContext.Provider
@@ -244,7 +231,8 @@ const TodosContextProvider = ({ children }) => {
         totalCount: state.totalCount,
         page: state.page,
         commentarys: state.commentarys,
-        isAuth, 
+
+        isAuth,
         userEmail,
         getTodos,
         addTodo,

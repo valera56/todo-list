@@ -1,68 +1,99 @@
 .list_coments {
-    display: flex;
-   width: 600px;
-   height: 300px;
-justify-content: left;
-   margin: 20px;
-   text-align: center;
-   box-sizing: border-box;
-   background-image: url(https://99px.ru/sstorage/53/2023/01/mid_348036_463765.jpg);
+  display: flex;
+  width: 495px;
+  height: 360px;
+  justify-content: left;
+  margin: 20px;
+
+  box-sizing: border-box;
+  background-image: url(https://img.wallscloud.net/uploads/thumb/3192274296/anime-girl-1-56739-495x360-MM-80.webp);
 }
-
-
 
 .ul_coment {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   margin: 0 auto;
   padding-top: 100px;
   padding-bottom: 100px;
-  background-color: black;
-
+  background-image: url(https://images.hdqwalls.com/download/forever-7th-capital-anime-4k-4x-1920x1080.jpg);
 }
 
-
-.list_name  {
-
-
-   
-   
-}
-.lict_value  {
-
-
-
-
-}
-.img_add  {
- 
-    width: 100%;
-
-}
-
-.bnt_add {
-  
+.img_add {
+  width: 100%;
 }
 
 .li_name {
-    color:blue;
-    font-size: 30px;
-    font-weight: 700;
+  color: yellow;
+  font-size: 30px;
+  font-weight: 700;
 }
+
 .li_coment {
-    color:yellow;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+
+.li_coment {
+  font-weight: 500;
+  color: black;
 }
 
 .block_add {
-    width: 100px;
-    height: 20px;
-    position: absolute;
-    top: 35px;
-    left: 5px;
-
+  width: 100px;
+  height: 20px;
+  position: absolute;
+  top: 35px;
+  left: 5px;
 }
 
 .block_coment2 {
-    position: absolute;
-    top: 40px;
+  position: absolute;
+  top: 40px;
 }
+
+.delete_btn {
+  color: black;
+  background-color: red;
+}
+
+.bnt_add {
+  color: black;
+  background-color: green;
+  border-color: blue;
+  width: 80px;
+  height: 30px;
+  margin: 10px;
+}
+
+.bnt_com {
+  color: black;
+  border-color: blue;
+  background-color: yellow;
+}
+.x {
+  color: black;
+  width: 30px;
+  height: 30px;
+  font-size: 15px;
+  border-color: black;
+  background-color: red;
+}
+
+.inpName {
+  margin: 10px;
+  background-color: gold;
+  border-color: red;
+  width: 150px;
+  height: 30px;
+  color: black;
+}
+
+.inpcommit {
+  width: 150px;
+  height: 30px;
+  color: black;
+}
+

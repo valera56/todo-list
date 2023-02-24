@@ -19,7 +19,6 @@ function TodoList(props) {
   const handleDeleteClick = () => {
     deleteTodo(props.todo.id);
     getTodos();
-    
   };
 
   const handeChangeStatus = (e) => {
@@ -51,15 +50,14 @@ function TodoList(props) {
             </button>
           </div>
         ) : (
-          
           <div>
             {props.todo.task}
             <button className="BtnEdit" onClick={() => setIsEdit(true)}>
-          Edit
-        </button>
+              Edit
+            </button>
           </div>
         )}
-        
+
         <button className="BtnDelete" onClick={handleDeleteClick}>
           delite
         </button>
