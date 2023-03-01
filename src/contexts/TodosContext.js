@@ -88,7 +88,6 @@ const TodosContextProvider = ({ children }) => {
       const { data, headers } = await axios(
         `http://localhost:8000/todos${history.location.search}`
       );
-
       dispatch({
         type: "GET_TODOS",
         payload: {
