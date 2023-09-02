@@ -9,6 +9,16 @@
       "email": "valera1@gmail.com",
       "password": "$2a$10$gIZ9L4lFcJIMFIOq1NifEeNwJJMaWpcw0rc05w1AnYDhQlzlvvOkW",
       "id": 2
+    },
+    {
+      "email": "qwe@gmail.com",
+      "password": "$2a$10$A.fRoN99p1Lp.jnOX79KNOUqjNgV0513SmxztrD4LyP.y//ZlTXCS",
+      "id": 3
+    },
+    {
+      "email": "vova@gmai.com",
+      "password": "$2a$10$gNYsuYn1bRyeQFHmQvuUvuC7ka0iT6nB01pQZjkXFfU8HrdU/1oLO",
+      "id": 4
     }
   ],
   "commentary": [
@@ -28,19 +38,14 @@
       "id": 5
     },
     {
-      "name": "qweqew",
-      "comment": "qwe",
+      "name": "erweqwe",
+      "comment": "qweqw",
       "id": 6
     },
     {
-      "name": "qweqewqwe",
-      "comment": "qweqwe",
+      "name": "erweqwe",
+      "comment": "qweqw",
       "id": 7
-    },
-    {
-      "name": "qweqewqwe",
-      "comment": "qweqwe",
-      "id": 8
     }
   ],
   "todos": [
@@ -63,46 +68,6 @@
       "complete": true,
       "task": "Valera 4",
       "id": 4
-    },
-    {
-      "complete": true,
-      "task": "Valera 5",
-      "id": 5
-    },
-    {
-      "complete": true,
-      "task": "Valera 6",
-      "id": 6
-    },
-    {
-      "complete": false,
-      "task": "Valera 7",
-      "id": 7
-    },
-    {
-      "complete": false,
-      "task": "Valera 8",
-      "id": 8
-    },
-    {
-      "complete": false,
-      "task": "qwe1",
-      "id": 9
-    },
-    {
-      "complete": true,
-      "task": "qwe2",
-      "id": 10
-    },
-    {
-      "complete": false,
-      "task": "qwe3",
-      "id": 11
-    },
-    {
-      "complete": false,
-      "task": "qwe4",
-      "id": 12
     }
   ]
 }
