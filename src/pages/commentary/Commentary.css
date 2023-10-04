@@ -1,10 +1,15 @@
+.add_coment {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 .list_coments {
   display: flex;
-  width: 495px;
-  height: 360px;
-  justify-content: left;
+  justify-content: center;
+  min-width: 495px;
+  min-height: 360px;
   margin: 20px;
-
   box-sizing: border-box;
   background-image: url(https://img.wallscloud.net/uploads/thumb/3192274296/anime-girl-1-56739-495x360-MM-80.webp);
 }
@@ -12,10 +17,13 @@
 .ul_coment {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  width: 100%;
+  min-height: 500px;
+  align-items: center;
   margin: 0 auto;
-  padding-top: 100px;
-  padding-bottom: 100px;
+  flex-direction: column;
+  padding-top: 50px;
+  padding-bottom: 50px;
   background-image: url(https://images.hdqwalls.com/download/forever-7th-capital-anime-4k-4x-1920x1080.jpg);
 }
 
@@ -33,30 +41,22 @@
     display: flex;
     flex-wrap: wrap;
     box-sizing: border-box;
-}
-
-
-.li_coment {
   font-weight: 500;
   color: black;
 }
 
 .block_add {
-  width: 100px;
-  height: 20px;
-  position: absolute;
-  top: 35px;
-  left: 5px;
+
 }
 
 .block_coment2 {
-  position: absolute;
-  top: 40px;
 }
 
 .delete_btn {
+  width: 100px;
   color: black;
   background-color: red;
+  margin: 10px;
 }
 
 .bnt_add {
@@ -72,6 +72,9 @@
   color: black;
   border-color: blue;
   background-color: yellow;
+  width: 250px;
+  height: 50px;
+  border-radius: 14px;
 }
 .x {
   color: black;
@@ -97,3 +100,17 @@
   color: black;
 }
 
+.liCom {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lict_value {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+}

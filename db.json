@@ -1,73 +1,31 @@
 {
-  "users": [
-    {
-      "email": "valera@gmail.com",
-      "password": "$2a$10$fm5T.StXWaRIBOGQrMpiVureQrtoSd5Kpdyb9A1BEKq74LuTMClb6",
-      "id": 1
-    },
-    {
-      "email": "valera1@gmail.com",
-      "password": "$2a$10$gIZ9L4lFcJIMFIOq1NifEeNwJJMaWpcw0rc05w1AnYDhQlzlvvOkW",
-      "id": 2
-    },
-    {
-      "email": "qwe@gmail.com",
-      "password": "$2a$10$A.fRoN99p1Lp.jnOX79KNOUqjNgV0513SmxztrD4LyP.y//ZlTXCS",
-      "id": 3
-    },
-    {
-      "email": "vova@gmai.com",
-      "password": "$2a$10$gNYsuYn1bRyeQFHmQvuUvuC7ka0iT6nB01pQZjkXFfU8HrdU/1oLO",
-      "id": 4
-    }
-  ],
-  "commentary": [
-    {
-      "name": "Valera",
-      "comment": "прикольное приложение",
-      "id": 2
-    },
-    {
-      "name": "Valera",
-      "comment": "прикольное приложение от создателя валеры",
-      "id": 3
-    },
-    {
-      "name": "asdas",
-      "comment": "asdsd",
-      "id": 5
-    },
-    {
-      "name": "erweqwe",
-      "comment": "qweqw",
-      "id": 6
-    },
-    {
-      "name": "erweqwe",
-      "comment": "qweqw",
-      "id": 7
-    }
-  ],
+  "commentary": [],
   "todos": [
     {
-      "complete": true,
-      "task": "Valera 1",
-      "id": 1
+      "complete": false,
+      "title": "Valera Popazov",
+      "text": "front end developer ",
+      "dataStart": "2021-01-20",
+      "dataStop": "2023-12-20",
+      "file": "C:\\fakepath\\bg-akame.jpeg",
+      "id": 7
     },
     {
       "complete": false,
-      "task": "Valera 2",
-      "id": 2
+      "title": "q",
+      "text": "ewqweqwe",
+      "dataStart": "0123-03-12",
+      "dataStop": "0123-03-12",
+      "file": "",
+      "id": 8
     },
     {
-      "complete": false,
-      "task": "Valera 3",
-      "id": 3
-    },
-    {
-      "complete": true,
-      "task": "Valera 4",
-      "id": 4
+      "title": "",
+      "text": "",
+      "dataStart": "",
+      "dataStop": "",
+      "file": "",
+      "id": 9
     }
   ]
 }

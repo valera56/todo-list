@@ -1,0 +1,104 @@
+.task {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.BtnEdit {
+    height: 40px;
+    color: black;
+    border-color: green;
+    background-color: gold;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.InpEdit {
+    width: 100%;
+    margin-bottom: 30px;
+    padding: 7px;
+    border-radius: 0;
+    border: 1px solid black;
+    box-sizing: border-box;
+    background-color: gray;
+    color: violet;
+}
+
+.BtnSave {
+    width: 200px;
+    height: 40px;
+    color: black;
+    border-color: green;
+    background-color: green;
+    cursor: pointer;
+}
+
+.blockTask {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    height: 80vh;
+    background-image: url("https://damion.club/uploads/posts/2022-01/thumbs/1641239163_21-damion-club-p-anime-shapka-22.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 20px;
+}
+p {
+    padding: 10px;
+    font-size: 15px;
+    font-weight: 700;
+}
+.todoId {
+    color: blue;
+}
+
+
+.todoTitle{
+    color: red;
+}
+
+.todoText {
+color: gray;
+}
+
+.todoDataStart {
+color: white;
+}
+
+.todoDataStop {
+color: white;
+}
+
+.todo {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.blockTodo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+}
+
+.blockEdit {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 200px;
+}

@@ -1,0 +1,78 @@
+.BtnDelete {
+    height: 30px;
+    margin: 10px;
+    color: darkblue;
+    border: none;
+    background-color: darkorchid;
+    border-radius: 14px;
+    width: 150px;
+    cursor: pointer;
+}
+
+.todo {
+    margin-top: 20px;
+}
+
+
+.list2 {
+    padding-top: 20px;
+    width: 100%;
+}
+
+.list2 li {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.checkbox {
+    width: 33px;
+    height: 20px;
+}
+
+li {
+    list-style-type: none;
+    font-size: 25px;
+}
+
+
+
+
+.listElem {
+    display: flex;
+    justify-content: space-between;
+    width: 725px;
+    height: 175px;
+    background-image: url("https://damion.club/uploads/posts/2022-01/thumbs/1641239163_21-damion-club-p-anime-shapka-22.jpg");
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+   border-radius: 14px
+;
+}
+
+.text {
+    margin: 5px;
+    font-size: 20px;
+    color: deeppink;
+}
+.task {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.id {
+    color: blue;
+    margin: 5px;
+    font-size: 20px;
+}
+
+.title {
+    margin: 5px;
+    color: yellow;
+    font-size: 30px;
+    font-weight: 700;
+}

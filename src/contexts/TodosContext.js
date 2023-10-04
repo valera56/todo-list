@@ -10,6 +10,7 @@ const INITIAL_STATE = {
   page: 1,
   totalCount: 0,
   commentarys: [],
+  currentTodo: {},
 };
 
 export const reducer = (state = INITIAL_STATE, action) => {
@@ -20,20 +21,11 @@ export const reducer = (state = INITIAL_STATE, action) => {
         todoData: action.payload.data,
         totalCount: action.payload.totalCount,
       };
+    case "GET_CURRENT_TODO":
+      return { ...state, currentTodo: action.payload };
 
     case "ADD_TODOS":
       return { ...state, todoData: [...state.todoData, action.payload] };
-
-    case "ADD_TODOS":
-      return {
-        ...state,
-        todoData: state.todoData.map((todo) => {
-          if (todo.id === action.payload.id) {
-            return action.payload;
-          }
-          return todo;
-        }),
-      };
 
     case "DELETE_TODO":
       return {
@@ -96,6 +88,14 @@ const TodosContextProvider = ({ children }) => {
         },
       });
     } catch (e) {}
+  };
+
+  const getCurrentTodo = async (id) => {
+    const { data } = await axios(`http://localhost:8000/todos/${id}`);
+    dispatch({
+      type: "GET_CURRENT_TODO",
+      payload: data,
+    });
   };
 
   const addTodo = async (obj) => {
@@ -226,11 +226,11 @@ const TodosContextProvider = ({ children }) => {
     <todosContext.Provider
       value={{
         todoData: state.todoData,
+        currentTodo : state.currentTodo,
         limit: state.limit,
         totalCount: state.totalCount,
         page: state.page,
         commentarys: state.commentarys,
-        
         isAuth,
         userEmail,
         getTodos,
@@ -242,14 +242,11 @@ const TodosContextProvider = ({ children }) => {
         setPage,
         getPagination,
         completeFilter,
-        logOut,
-        setisAuth,
-        setUserEmail,
-        loginUser,
         registerUser,
         getCommetaty,
         addComent,
         deleteComents,
+        getCurrentTodo,
       }}
     >
       {children}
